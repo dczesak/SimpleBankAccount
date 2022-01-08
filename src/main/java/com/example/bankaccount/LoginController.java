@@ -1,13 +1,15 @@
 package com.example.bankaccount;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,10 +30,10 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        makeStageDragable();
+        makeStageDraggable();
     }
 
-    private void makeStageDragable() {
+    private void makeStageDraggable() {
         parent.setOnMousePressed((event) -> {
             xOffSet = event.getSceneX();
             yOffSet = event.getSceneY();
@@ -60,7 +62,10 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void handle_login(MouseEvent event) {
-
+    private void handle_login(MouseEvent event) throws IOException {
+//        Parent menu = FXMLLoader.load(getClass().getResource("main-window-view.fxml"));
+//        content.getChildren().removeAll();
+//        content.getChildren().setAll(menu);
+        System.out.println("Button works");
     }
 }

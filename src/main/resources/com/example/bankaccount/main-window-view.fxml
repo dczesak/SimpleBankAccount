@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="content" prefHeight="545.0" prefWidth="1024.0" styleClass="parent" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankaccount.MainWindowController">
+   <children>
+      <Label layoutX="471.0" layoutY="258.0" text="Welcome" textFill="#e8e5e5">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="481.0" layoutY="303.0" mnemonicParsing="false" onAction="#handle_logout" styleClass="login-btn" text="Sign Out">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
