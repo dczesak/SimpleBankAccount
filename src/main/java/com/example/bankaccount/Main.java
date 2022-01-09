@@ -16,12 +16,20 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1024, 640);
+        Parent root = FXMLLoader.load(getClass().getResource("login-view.fxml"));
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
-        this.stage = stage;
+
         stage.show();
+
+
+//        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), 1024, 580);
+//        stage.setScene(scene);
+//        stage.initStyle(StageStyle.UNDECORATED);
+//        this.stage = stage;
+//        stage.show();
     }
 
     public static void main(String[] args) {

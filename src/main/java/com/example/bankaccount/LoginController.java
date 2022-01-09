@@ -28,16 +28,13 @@ public class LoginController implements Initializable {
     @FXML
     private Pane content;
 
-    @FXML
-    private Button login_button;
-
     private double xOffSet = 0;
     private double yOffSet = 0;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        makeStageDraggable();
+        //makeStageDraggable();
     }
 
     private void makeStageDraggable() {
@@ -70,9 +67,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handle_login(ActionEvent event) throws IOException {
-        Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
+        Parent menu = FXMLLoader.load(getClass().getResource("main-window-view.fxml"));
         content.getChildren().removeAll();
         content.getChildren().setAll(menu);
-        System.out.println("Button works");
     }
 }
