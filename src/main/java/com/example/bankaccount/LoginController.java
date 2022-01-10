@@ -1,11 +1,13 @@
 package com.example.bankaccount;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +22,9 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @FXML
+    private Label loginProblemLabel;
+
+    @FXML
     private AnchorPane parent;
 
     @FXML
@@ -28,14 +33,21 @@ public class LoginController implements Initializable {
     @FXML
     private Pane content;
 
+    @FXML
+    private TextField loginTextField;
+
+    @FXML
+    private PasswordField passwordTextField;
+
     private double xOffSet = 0;
     private double yOffSet = 0;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //makeStageDraggable();
+        makeStageDraggable();
     }
+
 
     private void makeStageDraggable() {
         parent.setOnMousePressed((event) -> {
@@ -66,9 +78,21 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void handle_login(ActionEvent event) throws IOException {
-        Parent menu = FXMLLoader.load(getClass().getResource("main-window-view.fxml"));
-        content.getChildren().removeAll();
-        content.getChildren().setAll(menu);
+    private void handleLogin() throws IOException {
+        if (loginTextField.getText().equals("") || passwordTextField.getText().equals("")) {
+            loginProblemLabel.setText("Enter login and password");
+            System.out.println("Click!");
+        } else {
+            Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
+            content.getChildren().removeAll();
+            content.getChildren().setAll(menu);
+            System.out.println("Click2!");
+        }
+    }
+
+    @FXML
+    private void handleLoginByKeyPressed(KeyEvent event) throws IOException {
+        if (event.getCode().equals(KeyCode.ENTER))
+            handleLogin();
     }
 }

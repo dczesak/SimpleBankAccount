@@ -42,7 +42,7 @@
                         <FontAwesomeIcon glyphName="USER" glyphStyle="-fx-fill:white" size="1.5em" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
                   </Label>
-                  <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" promptText="Username" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="loginTextField" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleLoginByKeyPressed" prefHeight="45.0" prefWidth="45.0" promptText="Username" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -56,18 +56,23 @@
                         <FontAwesomeIcon glyphName="LOCK" glyphStyle="-fx-fill:white" size="1.5em" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </graphic>
                   </Label>
-                  <PasswordField minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" promptText="Password" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <PasswordField fx:id="passwordTextField" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleLoginByKeyPressed" prefHeight="45.0" prefWidth="45.0" promptText="Password" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
                </children>
             </HBox>
-            <Button fx:id="login_button" layoutX="387.0" layoutY="309.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle_login" prefHeight="45.0" prefWidth="250.0" styleClass="login-btn" text="SIGN IN" textFill="WHITE">
+            <Button fx:id="login_button" layoutX="387.0" layoutY="309.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleLogin" prefHeight="45.0" prefWidth="250.0" styleClass="login-btn" text="SIGN IN" textFill="WHITE">
                <font>
                   <Font name="Microsoft Sans Serif" size="15.0" />
                </font>
             </Button>
+            <Label fx:id="loginProblemLabel" layoutX="387.0" layoutY="374.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
