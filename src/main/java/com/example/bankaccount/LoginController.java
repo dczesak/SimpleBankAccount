@@ -16,6 +16,8 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -41,11 +43,13 @@ public class LoginController implements Initializable {
 
     private double xOffSet = 0;
     private double yOffSet = 0;
+    private Connection connection = DatabaseConnection.connectToDatabase();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         makeStageDraggable();
+
     }
 
 
@@ -78,20 +82,22 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void handleLogin() throws IOException {
-        if (loginTextField.getText().equals("") || passwordTextField.getText().equals("")) {
-            loginProblemLabel.setText("Enter login and password");
-            System.out.println("Click!");
+    private void handleLogin() throws IOException, SQLException {
+        if (connection.isClosed()) {
+            loginProblemLabel.setText("Error with database connection");
         } else {
-            Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
-            content.getChildren().removeAll();
-            content.getChildren().setAll(menu);
-            System.out.println("Click2!");
+            if (loginTextField.getText().equals("") || passwordTextField.getText().equals("")) {
+                loginProblemLabel.setText("Enter login and password");
+            } else {
+                Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
+                content.getChildren().removeAll();
+                content.getChildren().setAll(menu);
+            }
         }
     }
 
     @FXML
-    private void handleLoginByKeyPressed(KeyEvent event) throws IOException {
+    private void handleLoginByKeyPressed(KeyEvent event) throws IOException, SQLException {
         if (event.getCode().equals(KeyCode.ENTER))
             handleLogin();
     }
