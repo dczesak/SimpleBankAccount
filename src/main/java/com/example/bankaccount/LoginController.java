@@ -44,6 +44,7 @@ public class LoginController implements Initializable {
     private double xOffSet = 0;
     private double yOffSet = 0;
     private Connection connection = DatabaseConnection.connectToDatabase();
+   
 
 
     @Override
@@ -83,16 +84,15 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handleLogin() throws IOException, SQLException {
-        if (connection.isClosed()) {
-            loginProblemLabel.setText("Error with database connection");
+
+        if (loginTextField.getText().equals("") || passwordTextField.getText().equals("")) {
+            loginProblemLabel.setText("Enter login and password");
+        } else if (connection.isClosed()){
+            loginProblemLabel.setText("Error with connection");
         } else {
-            if (loginTextField.getText().equals("") || passwordTextField.getText().equals("")) {
-                loginProblemLabel.setText("Enter login and password");
-            } else {
-                Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
-                content.getChildren().removeAll();
-                content.getChildren().setAll(menu);
-            }
+            Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
+            content.getChildren().removeAll();
+            content.getChildren().setAll(menu);
         }
     }
 
