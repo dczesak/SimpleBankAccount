@@ -17,6 +17,8 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -90,6 +92,18 @@ public class LoginController implements Initializable {
         } else if (connection.isClosed()){
             loginProblemLabel.setText("Error with connection");
         } else {
+            String login = loginTextField.getText();
+            String password = passwordTextField.getText();
+            String query = "SELECT first_name, last_name FROM users WHERE login = '" + login +
+                            "' AND password = '" + password + "'";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                LoginSession.firstName = resultSet.getString("first_name");
+                LoginSession.lastName = resultSet.getString("last_name");
+            }
+
             Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main-window-view.fxml")));
             content.getChildren().removeAll();
             content.getChildren().setAll(menu);

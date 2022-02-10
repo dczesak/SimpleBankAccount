@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="content" prefHeight="545.0" prefWidth="1024.0" styleClass="parent" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankaccount.MainWindowController">
+<AnchorPane fx:id="content" prefHeight="545.0" prefWidth="1024.0" styleClass="parent" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankaccount.MainWindowController">
    <children>
-      <Label layoutX="471.0" layoutY="258.0" text="Welcome" textFill="#e8e5e5">
+      <Label fx:id="helloLabel" layoutX="471.0" layoutY="258.0" text="Welcome" textFill="#e8e5e5">
          <font>
             <Font size="20.0" />
          </font>
@@ -16,10 +16,5 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="helloLabel" layoutX="92.0" layoutY="51.0" textFill="#f8f8f8">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

@@ -24,7 +24,7 @@ public class MainWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        helloLabel.setText("Welcome " + LoginSession.firstName + " " + LoginSession.lastName);
     }
 
     @FXML
@@ -32,8 +32,7 @@ public class MainWindowController implements Initializable {
         Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login-view.fxml")));
         content.getChildren().removeAll();
         content.getChildren().setAll(menu);
+
     }
-
-
 
 }
