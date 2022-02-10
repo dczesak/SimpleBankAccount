@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
     private double xOffSet = 0;
     private double yOffSet = 0;
     private Connection connection = DatabaseConnection.connectToDatabase();
-   
+
 
 
     @Override

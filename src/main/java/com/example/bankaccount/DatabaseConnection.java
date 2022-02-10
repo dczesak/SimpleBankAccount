@@ -3,7 +3,7 @@ import java.sql.*;
 
 public class DatabaseConnection {
     public static Connection connectToDatabase() {
-        String jdbcURL="jdbc:postgresql://localhost:5432/bancaccount";
+        String jdbcURL="jdbc:postgresql://localhost:5432/bankaccount";
         String username = "postgres";
         String password = "B@zy5432!";
 
