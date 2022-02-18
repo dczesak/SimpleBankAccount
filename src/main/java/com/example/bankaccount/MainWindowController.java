@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -28,11 +29,13 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    private void handle_logout(ActionEvent event) throws IOException {
+    private void handle_logout(ActionEvent event) throws IOException, SQLException {
         Parent menu = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login-view.fxml")));
         content.getChildren().removeAll();
         content.getChildren().setAll(menu);
-
+        DatabaseConnection.connectToDatabase().close();
+        LoginSession.firstName = "";
+        LoginSession.lastName = "";
     }
 
 }
