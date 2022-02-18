@@ -11,7 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -37,5 +36,4 @@ public class MainWindowController implements Initializable {
         LoginSession.firstName = "";
         LoginSession.lastName = "";
     }
-
 }
