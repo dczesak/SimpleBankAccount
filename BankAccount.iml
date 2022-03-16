@@ -10,7 +10,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="postgresql-42.3.1" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.36.0.3" level="project" />
     <orderEntry type="library" name="postgresql-42.3.2" level="application" />
     <orderEntry type="library" name="javafx-swt" level="application" />
@@ -29,5 +28,6 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:11.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:linux:11.0.2" level="project" />
     <orderEntry type="library" name="fontawesomefx-8.2" level="project" />
+    <orderEntry type="library" name="postgresql-42.3.1" level="application" />
   </component>
 </module>
